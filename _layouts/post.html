@@ -1,0 +1,61 @@
+---
+layout: default
+---
+<div class="pure-g h-entry" typeof="BlogPosting" resource="{{ page.url | prepend: site.baseurl }}">
+  <header class="pure-u-1">
+    <h1>
+      <a href="{{ page.url | prepend: site.baseurl }}" class="screen">
+        <i class="fa fa-link">&nbsp;</i>
+      </a>
+      <span class="p-title" property="headline">{{ page.title }}</span>
+      {% if page.subtitle %}
+        <small property="alternativeHeadline">{{ page.subtitle }}</small>
+      {% endif %}
+      <img src="https://chart.googleapis.com/chart?cht=qr&amp;chs=75x75&amp;chl={{ page.url | prepend: site.baseurl | uri_escape }}" class="print" alt="">
+    </h1>
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <i class="fa fa-calendar">&nbsp;</i>
+          <time class="dt-published" property="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date }}</time>
+        </li>
+        <li class="pure-menu-separator"></li>
+        <li class="pure-menu-item" rel=author typeof="Person">
+          <i class="fa fa-user">&nbsp;</i>
+        {% if page.author %}
+            <span property="name">{{ page.author }}</span>
+        {% else %}
+          <a property="url" href="{{ "about.html" | prepend: site.baseurl }}" data-noprintlink>
+            <span property="name">Grégoire Astruc</span>
+          </a>
+        {% endif %}
+        </li>
+        <li class="pure-menu-separator"></li>
+        <li class="pure-menu-item">
+          <i class="fa fa-{% if page.license.icon %}{{ page.license.icon }}{% else %}creative-commons{% endif %}">&nbsp;</i>
+
+          <a rel="license" href="{% if page.license.url %}{{ page.license.url }}{% else %}http://creativecommons.org/licenses/by/4.0/{% endif %}" title="{% if page.license.title %}{{ page.license.title }}{% else %}CC-BY 4.0{% endif %}" data-noprintlink>
+            {% if page.license.title %}{{ page.license.title }}{% else %}CC-BY 4.0{% endif %}
+          </a>
+        </li>
+      {% if page.meta %}
+        <li class="pure-menu-separator"></li>
+        <li class="pure-menu-item p-category">
+          {{ page.meta }}
+        </li>
+      {% endif %}
+      </ul>
+    </div>
+  </header>
+  <article class="e-content pure-u-1 pure-u-md-2-3 pure-u-xl-1-2" property="articleBody">
+    {{ content }}
+  </article>
+</div>
+<div class="pure-g screen">
+  <div id="comments" class="pure-u-1 pure-u-xl-1-2">
+    <button id="showComments" class="pure-button pure-button-primary pure-u-1">
+      <i class="fa fa-comments">&nbsp;</i>
+      Show comments (Disqus)
+    </button>
+  </div>
+</div>

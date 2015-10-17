@@ -1,0 +1,35 @@
+# Site settings
+title: Notes
+description: >
+  Computey wimey wobbley... stuff.
+baseurl: ""
+timezone: America/Montreal
+url: //notes.struck.ovh
+twitter_username: gregoire_astruc
+github_username:  gregoire-astruc
+linkedin_username: gregoireastruc
+exclude:
+  - '*.sh'
+  - .git
+  - .gitignore
+  - README.md
+  - LICENSE.md
+
+social:
+  - icon: github
+    username: gregoire-astruc
+    baseurl: https://github.com/
+  - icon: twitter
+    username: gregoire_astruc
+    baseurl: https://twitter.com/
+    display_name: '@gregoire_astruc'
+  - icon: linkedin
+    username: gregoireastruc
+    baseurl: https://linkedin.com/in/
+    display_name: Grégoire Astruc
+
+# Build settings
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+  input: GFM

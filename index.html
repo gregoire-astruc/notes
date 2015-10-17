@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<div class="posts pure-g">
+  <h1 class="pure-u-1">Posts</h1>
+  {% for post in site.posts %}
+  <div class="pure-u-1 pure-u-md-1-2">
+    <div class="h-entry pure-g">
+      <h2 class="pure-u-1">
+        <span class="p-name">{{ post.title }}</span>
+        <small class="dt-published">{{ post.date | date: "%b %-d, %Y" }}</small>
+      </h2>
+      <div class="p-summary pure-u-1">
+        {{ post.excerpt }}
+      </div>
+      <a class="u-url pure-button pure-button-primary pure-u-1" href="{{ post.url | prepend: site.baseurl }}">
+        Read More
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,25 @@
+<nav id="menu" class="pure-menu screen menu-md-horizontal">
+  <a class="pure-menu-heading pure-menu-link" href="{{ site.baseurl | prepend: site.url }}">
+    <i class="fa fa-home fa-lg">&nbsp;</i>
+    <span class="hidden-sm">{{ site.title }}</span>
+  </a>
+  <ul class="pure-menu-list">
+    {% for page in {{ site.pages | where:"title", "About" }} %}{{ page.url }}{% endfor %}
+  {{ site.pages | where:"menu","1" }}
+    <li class="pure-menu-separator"></li>{% comment %}
+{% endcomment %}{% for page in site.pages %}{% if page.title and page.menu %}
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="{{ page.url | prepend: site.baseurl }}">
+        {% if page.icon %}<i class="fa fa-{{ page.icon }}">&nbsp;</i>{% endif %}
+        <span class="hidden-sm">{{ page.title }}</span>
+      </a>
+    </li>{% endif %}{% endfor %}
+    <li class="pure-menu-separator"></li>
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+        <i class="fa fa-rss">&nbsp;</i>
+        <span class="hidden-sm">RSS</span>
+      </a>
+    </li>
+  </ul>
+</nav>

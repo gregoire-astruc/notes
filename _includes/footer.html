@@ -1,0 +1,39 @@
+<footer class="pure-g screen">
+  <div class="pure-u-lg-2-3 pure-u-1">
+    <form method="get" action="https://duckduckgo.com/" class="pure-form pure-g">
+      <input type="hidden" name="kh" value="1">
+      <input type="hidden" name="sites" value="{{ site.url | remove: 'https:' | remove: 'http:' | remove: '//' }}">
+      <input type="hidden" name="t" value="{{ site.url | remove: 'https:' | remove: 'http:' | remove: '//' }}">
+      <div class="pure-u-1 pure-u-sm-5-6 pure-u-lg-4-5">
+        <input type="search" placeholder="Search the Notes" name="q" class="pure-input-1">
+      </div>
+      <div class="pure-u-sm-1-6 pure-u-lg-1-5 hidden-sm">
+        <button type="submit" class="pure-button">
+          <i class="fa fa-search">&nbsp;</i>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="pure-menu pure-u-1 pure-u-lg-1-3 menu-md-horizontal">
+    <span class="pure-menu-heading">{{ site.title }}</span>
+    <ul class="pure-menu-list">
+    {% for social in site.social %}
+      <li class="pure-menu-item">
+        <a class="pure-menu-link" href="{{ social.username | prepend: social.baseurl }}" rel="me">
+          <i class="fa fa-{{ social.icon }} fa-lg">&nbsp;</i>
+          <span class="hidden-sm">{% if social.display_name %}{{ social.display_name }}{% else %}{{ social.username }}{% endif %}</span>
+        </a>
+      </li>
+    {% endfor %}
+      <li class="pure-menu-separator"></li>
+      {% for page in site.pages %}{% if page.title and page.footer %}
+      <li class="pure-menu-item">
+      <a class="pure-menu-link" href="{{ page.url | prepend: site.baseurl }}">
+        {% if page.icon %}<i class="fa fa-{{ page.icon }}">&nbsp;</i>{% endif %}
+        <span class="hidden-sm">{{ page.title }}</span>
+      </a>
+    </li>{% endif %}{% endfor %}
+    </ul>
+    <em id="site-description">{{ site.description }}</em>
+  </div>
+</footer>

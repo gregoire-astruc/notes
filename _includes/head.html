@@ -1,0 +1,21 @@
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <link rel="pingback" href="https://webmention.io/notes.struck.ovh/xmlrpc" />
+  <link rel="webmention" href="https://webmention.io/notes.struck.ovh/webmention" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+
+  <link rel="author" href="{{ "about.html" | prepend: site.baseurl | prepend: site.url }}" title="Grégoire Astruc">
+  <link rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" title="CC-BY-SA 4.0">
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Source+Code+Pro%7CHind'>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/g/pure@0.6.0(pure-min.css+grids-responsive-min.css)">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/fontawesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+</head>

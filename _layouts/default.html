@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html{% if page.lang %} lang="{{ page.lang }}"{% endif %}>
+  {% include head.html %}
+  <body  vocab="http://schema.org/">
+    {% include header.html %}
+    <div id="content">
+        {{ content }}
+    </div>
+    {% include footer.html %}
+    {% include scripts.html %}
+  </body>
+</html>

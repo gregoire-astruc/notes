@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<div class="pure-g h-entry">
+  <header class="pure-u-1 p-title">
+    <h1 class="p-title">{{ page.title }}</h1>
+  </header>
+
+  <article class="pure-u-1 {% unless page.grid %}pure-u-md-2-3 {% endunless %}e-content">
+  {% if page.grid %}<div class="pure-g">{% endif %}
+    {{ content }}
+  {% if page.grid %}</div>{% endif %}
+  </article>
+</div>
